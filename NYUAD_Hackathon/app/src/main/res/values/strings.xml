@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">NYUAD_Hackathon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="import_picture">Import Picture</string>
+    <string name="convert">Convert</string>
+    <string name="require_camera_permission">Sorry, the app requires camera permission to work</string>
+    <string name="close">Close</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="retry">Retry</string>
+    <string name="original_picture">Original</string>
+    <string name="converted_text">Converted text</string>
+    <string name="convert_next">Convert next</string>
+</resources>

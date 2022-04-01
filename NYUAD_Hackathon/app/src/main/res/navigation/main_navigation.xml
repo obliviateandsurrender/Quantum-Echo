@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:label="fragment_home"
+        android:name="com.raedghazal.nyuad_hackathon.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_previewPictureFragment"
+            app:destination="@id/previewPictureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cameraFragment"
+        android:label="fragment_camera"
+        android:name="com.raedghazal.nyuad_hackathon.CameraFragment"
+        tools:layout="@layout/fragment_camera">
+        <action
+            android:id="@+id/action_cameraFragment_to_previewPictureFragment"
+            app:destination="@id/previewPictureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/previewPictureFragment"
+        android:label="fragment_preview_picture"
+        android:name="com.raedghazal.nyuad_hackathon.PreviewPictureFragment"
+        tools:layout="@layout/fragment_preview_picture">
+        <argument
+            android:name="imageUri"
+            app:argType="android.net.Uri" />
+        <action
+            android:id="@+id/action_previewPictureFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:label="fragment_result"
+        android:name="com.raedghazal.nyuad_hackathon.ResultFragment"
+        tools:layout="@layout/fragment_result">
+        <argument
+            android:name="imageUri"
+            app:argType="android.net.Uri" />
+        <action
+            android:id="@+id/action_resultFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/main_navigation"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

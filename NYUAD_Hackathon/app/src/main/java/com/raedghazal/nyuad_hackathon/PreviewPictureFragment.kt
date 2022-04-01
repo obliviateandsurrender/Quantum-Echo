@@ -1,0 +1,39 @@
+package com.raedghazal.nyuad_hackathon
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import com.raedghazal.nyuad_hackathon.databinding.FragmentPreviewPictureBinding
+
+class PreviewPictureFragment : Fragment() {
+
+    private var _binding: FragmentPreviewPictureBinding? = null
+    private val binding: FragmentPreviewPictureBinding get() = _binding!!
+
+    private val args by navArgs<PreviewPictureFragmentArgs>()
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentPreviewPictureBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.imgPreview.setImageURI(args.imageUri)
+
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
+        binding.btnNext.setOnClickListener {
+            PreviewPictureFragmentDirections.actionPreviewPictureFragmentToResultFragment(args.imageUri).navigate(this)
+        }
+    }
+}
